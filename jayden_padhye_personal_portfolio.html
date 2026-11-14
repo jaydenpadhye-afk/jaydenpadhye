@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jayden Padhye — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05060f;--fg:#e8ecff;--muted:#9aa3c7;--card:rgba(18,22,48,.6);--line:rgba(140,160,255,.15);--accent:#7dd3fc;--accent2:#a78bfa;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:radial-gradient(ellipse at 20% 0%,#1a1446 0%,transparent 55%),radial-gradient(ellipse at 90% 30%,#0b2a4a 0%,transparent 50%),var(--bg);background-attachment:fixed;color:var(--fg);line-height:1.6}
+.wrap{max-width:960px;margin:auto;padding:0 20px}
+nav{position:sticky;top:0;background:rgba(5,6,15,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:9}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+nav a{color:var(--fg);text-decoration:none;margin-left:20px;font-size:.95rem}
+nav a:hover{color:var(--accent)}
+.logo{font-weight:800;margin:0}
+#stars{position:fixed;inset:0;z-index:-1;pointer-events:none}
+header{position:relative}
+html,body{overflow-x:clip}
+.orbit{position:absolute;right:-60px;top:40px;width:340px;height:340px;border:1px dashed rgba(125,211,252,.3);border-radius:50%;animation:spin 30s linear infinite;z-index:-1}
+.orbit::before{content:"";position:absolute;top:-7px;left:50%;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}
+.orbit.o2{width:220px;height:220px;right:0;top:100px;border-color:rgba(167,139,250,.3);animation-duration:18s;animation-direction:reverse}
+.orbit.o2::before{background:var(--accent2);box-shadow:0 0 18px var(--accent2)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.orbit{animation:none}}
+.class{display:inline-block;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line);padding:4px 12px;border-radius:99px;margin-bottom:18px}
+.card{backdrop-filter:blur(6px)}
+.card:hover{box-shadow:0 0 30px rgba(125,211,252,.15)}
+header.wrap{padding:110px 20px 80px}
+h1{font-size:clamp(2.4rem,7vw,4.2rem);line-height:1.1;font-weight:800}
+h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:1.2rem;max-width:600px;margin:20px 0 32px}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#05060f;text-decoration:none;font-weight:600;margin-right:10px}
+.btn.ghost{background:none;color:var(--fg);border:1px solid var(--line)}
+section{padding:70px 0;border-top:1px solid var(--line)}
+h2{font-size:1.8rem;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.card h3{margin-bottom:8px}
+.card p{color:var(--muted)}
+.tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+.tags span,.skills span{font-size:.8rem;padding:4px 10px;border-radius:99px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+.skills{display:flex;flex-wrap:wrap;gap:10px}
+.skills span{font-size:.95rem;padding:8px 14px}
+footer{padding:40px 0;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
+@media(max-width:600px){.orbit{opacity:.4}nav .links a:not(:last-child){display:none}}
+</style>
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<nav><div class="wrap">
+  <p class="logo">JP.</p>
+  <div class="links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#achievements">Achievements</a><a href="#skills">Courses</a><a href="#contact">Contact</a></div>
+</div></nav>
+
+<header class="wrap">
+  <div class="orbit" aria-hidden="true"></div><div class="orbit o2" aria-hidden="true"></div>
+  <span class="class">Class of 2029</span>
+  <h1>Hi, I'm <span>Jayden Padhye</span>.<br>Aspiring aerospace engineer.</h1>
+  <p class="lead">High school student with a 4.0 GPA, a passion for science and building things, and a goal of designing what flies next.</p>
+  <a class="btn" href="#projects">See my work</a><a class="btn ghost" href="#contact">Get in touch</a>
+</header>
+
+<section id="about"><div class="wrap">
+  <h2>About</h2>
+  <p class="lead" style="margin:0">I'm a high school student working toward a career in aerospace engineering. I compete in Science Olympiad (Astronomy, Rocks &amp; Minerals, Codebusters), built the AI study app Flashori, worked as a summer teacher assistant, and volunteer in my community.</p>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <div class="grid">
+    <a class="card" href="https://flashori.com" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><h3>Flashori ↗</h3><p>An AI-powered study app I built to help students learn faster and smarter.</p><div class="tags"><span>AI</span><span>Web App</span><span>Founder</span></div></a>
+    <div class="card"><h3>Science Olympiad</h3><p>B Team competitor in three events.</p><div class="tags"><span>Astronomy</span><span>Rocks &amp; Minerals</span><span>Codebusters</span></div></div>
+    <div class="card"><h3>Teacher Assistant</h3><p>Summer job supporting a teacher in the classroom and helping students learn.</p><div class="tags"><span>Work</span><span>Leadership</span></div></div>
+  </div>
+</div></section>
+
+<section id="achievements"><div class="wrap">
+  <h2>Achievements</h2>
+  <div class="grid">
+    <div class="card"><h3>4.0 GPA</h3><p>Maintained in high school.</p></div>
+    <div class="card"><h3>Honor Roll</h3><p>Middle school and high school.</p></div>
+    <div class="card"><h3>AVSA Award</h3><p>100+ volunteer service hours.</p></div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Coursework</h2>
+  <div class="skills"><span>AP Precalculus</span><span>AP Human Geography</span><span>AP Spanish</span></div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>Contact</h2>
+  <p class="lead" style="margin-top:0">Open to internships, research and STEM opportunities.</p>
+  <a class="btn" href="mailto:jaydenpadhye@gmail.com">Email me</a><a class="btn ghost" href="https://linkedin.com/">LinkedIn</a>
+</div></section>
+
+<footer>© <span id="yr"></span> Jayden Padhye</footer>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const c=document.getElementById('stars'),x=c.getContext('2d');let st=[];
+function size(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;st=Array.from({length:Math.min(260,innerWidth/4)},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.4*devicePixelRatio,t:Math.random()*6}))}
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function draw(n){x.clearRect(0,0,c.width,c.height);for(const s of st){x.globalAlpha=.4+.6*Math.abs(Math.sin(s.t+n/1500));x.fillStyle='#fff';x.beginPath();x.arc(s.x,s.y,s.r,0,7);x.fill()}if(!still)requestAnimationFrame(draw)}
+addEventListener('resize',size);size();requestAnimationFrame(draw);
+</script>
+</body>
+</html>
