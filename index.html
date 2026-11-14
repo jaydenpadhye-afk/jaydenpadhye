@@ -48,13 +48,21 @@ h2{font-size:1.8rem;margin-bottom:24px}
 .skills span{font-size:.95rem;padding:8px 14px}
 footer{padding:40px 0;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
 @media(max-width:600px){.orbit{opacity:.4}nav .links a:not(:last-child){display:none}}
+.email{font-size:1.25rem;margin-bottom:20px}.email a{color:var(--accent);text-decoration:none}.email a:hover{text-decoration:underline}
+details.course{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;backdrop-filter:blur(6px)}
+details.course[open]{border-color:var(--accent)}
+details.course summary{cursor:pointer;font-weight:600;font-size:1.1rem;list-style:none;display:flex;justify-content:space-between}
+details.course summary::after{content:"+";color:var(--accent)}details.course[open] summary::after{content:"−"}
+.course h4{margin:16px 0 6px;color:var(--accent);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em}
+.course ul{padding-left:18px;color:var(--muted)}.course li a{color:var(--fg)}.course .empty{color:var(--muted);font-style:italic}
+#courseGrid{align-items:start}
 </style>
 </head>
 <body>
 <canvas id="stars" aria-hidden="true"></canvas>
 <nav><div class="wrap">
   <p class="logo">JP.</p>
-  <div class="links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#achievements">Achievements</a><a href="#skills">Courses</a><a href="#contact">Contact</a></div>
+  <div class="links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#achievements">Achievements</a><a href="#courses">Courses</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div>
 </div></nav>
 
 <header class="wrap">
@@ -88,15 +96,23 @@ footer{padding:40px 0;color:var(--muted);text-align:center;border-top:1px solid 
   </div>
 </div></section>
 
+<section id="courses"><div class="wrap">
+  <h2>Current Courses</h2>
+  <p class="lead" style="margin:-10px 0 24px;font-size:1rem">Notes, study guides and resources, organized by class.</p>
+  <div class="grid" id="courseGrid"></div>
+</div></section>
+
 <section id="skills"><div class="wrap">
   <h2>Coursework</h2>
   <div class="skills"><span>AP Precalculus</span><span>AP Human Geography</span><span>AP Spanish</span></div>
+  <h2 style="margin-top:40px">Languages &amp; Interests</h2>
+  <div class="skills"><span>🇪🇸 Fluent in Spanish</span><span>♟️ Chess · 1100 Elo (chess.com)</span><span>🔭 Astronomy</span><span>🔐 Codebreaking</span></div>
 </div></section>
 
 <section id="contact"><div class="wrap">
   <h2>Contact</h2>
   <p class="lead" style="margin-top:0">Open to internships, research and STEM opportunities.</p>
-  <a class="btn" href="mailto:jaydenpadhye@gmail.com">Email me</a><a class="btn ghost" href="https://linkedin.com/">LinkedIn</a>
+  <p class="email">📧 <a href="mailto:jaydenpadhye@gmail.com">jaydenpadhye@gmail.com</a></p><a class="btn ghost" href="https://linkedin.com/">LinkedIn</a>
 </div></section>
 
 <footer>© <span id="yr"></span> Jayden Padhye</footer>
@@ -107,6 +123,25 @@ function size(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*deviceP
 const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function draw(n){x.clearRect(0,0,c.width,c.height);for(const s of st){x.globalAlpha=.4+.6*Math.abs(Math.sin(s.t+n/1500));x.fillStyle='#fff';x.beginPath();x.arc(s.x,s.y,s.r,0,7);x.fill()}if(!still)requestAnimationFrame(draw)}
 addEventListener('resize',size);size();requestAnimationFrame(draw);
+</script>
+<script>
+/* ===== EDIT YOUR COURSES HERE =====
+   Add units and materials. Each material: { title: "Name", url: "link" } */
+const COURSES = [
+  { name: "AP Precalculus", units: [
+    { unit: "Unit 1: Polynomial & Rational Functions", materials: [] },
+  ]},
+  { name: "AP Human Geography", units: [
+    { unit: "Unit 1: Thinking Geographically", materials: [] },
+  ]},
+  { name: "AP Spanish", units: [
+    { unit: "Unit 1", materials: [] },
+  ]},
+];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.getElementById('courseGrid').innerHTML=COURSES.map(c=>`<details class="course"><summary>${esc(c.name)}</summary>${
+  c.units.map(u=>`<h4>${esc(u.unit)}</h4>${u.materials.length?`<ul>${u.materials.map(m=>`<li><a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.title)}</a></li>`).join('')}</ul>`:'<p class="empty">Materials coming soon</p>'}`).join('')
+}</details>`).join('');
 </script>
 </body>
 </html>
