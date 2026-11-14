@@ -62,7 +62,7 @@ details.course summary::after{content:"+";color:var(--accent)}details.course[ope
 <canvas id="stars" aria-hidden="true"></canvas>
 <nav><div class="wrap">
   <p class="logo">JP.</p>
-  <div class="links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#achievements">Achievements</a><a href="#courses">Courses</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div>
+  <div class="links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#achievements">Achievements</a><a href="#courses">Courses</a><a href="#skills">Interests</a><a href="#contact">Contact</a></div>
 </div></nav>
 
 <header class="wrap">
@@ -103,9 +103,7 @@ details.course summary::after{content:"+";color:var(--accent)}details.course[ope
 </div></section>
 
 <section id="skills"><div class="wrap">
-  <h2>Coursework</h2>
-  <div class="skills"><span>AP Precalculus</span><span>AP Human Geography</span><span>AP Spanish</span></div>
-  <h2 style="margin-top:40px">Languages &amp; Interests</h2>
+  <h2>Languages &amp; Interests</h2>
   <div class="skills"><span>🇪🇸 Fluent in Spanish</span><span>♟️ Chess · 1100 Elo (chess.com)</span><span>🔭 Astronomy</span><span>🔐 Codebreaking</span></div>
 </div></section>
 
@@ -129,12 +127,27 @@ addEventListener('resize',size);size();requestAnimationFrame(draw);
    Add units and materials. Each material: { title: "Name", url: "link" } */
 const COURSES = [
   { name: "AP Precalculus", units: [
-    { unit: "Unit 1: Polynomial & Rational Functions", materials: [] },
+    { unit: "Unit 1", materials: [] },
+  ]},
+  { name: "AP Calculus AB", units: [
+    { unit: "Unit 1", materials: [] },
+  ]},
+  { name: "Chemistry", units: [
+    { unit: "Unit 1", materials: [] },
   ]},
   { name: "AP Human Geography", units: [
-    { unit: "Unit 1: Thinking Geographically", materials: [] },
+    { unit: "Unit 1", materials: [] },
+  ]},
+  { name: "English 2A", units: [
+    { unit: "Unit 1", materials: [] },
+  ]},
+  { name: "Spanish 3", units: [
+    { unit: "Unit 1", materials: [] },
   ]},
   { name: "AP Spanish", units: [
+    { unit: "Unit 1", materials: [] },
+  ]},
+  { name: "PE 2", units: [
     { unit: "Unit 1", materials: [] },
   ]},
 ];
