@@ -49,13 +49,6 @@ h2{font-size:1.8rem;margin-bottom:24px}
 footer{padding:40px 0;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
 @media(max-width:600px){.orbit{opacity:.4}nav .links a:not(:last-child){display:none}}
 .email{font-size:1.25rem;margin-bottom:20px}.email a{color:var(--accent);text-decoration:none}.email a:hover{text-decoration:underline}
-details.course{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;backdrop-filter:blur(6px)}
-details.course[open]{border-color:var(--accent)}
-details.course summary{cursor:pointer;font-weight:600;font-size:1.1rem;list-style:none;display:flex;justify-content:space-between}
-details.course summary::after{content:"+";color:var(--accent)}details.course[open] summary::after{content:"−"}
-.course h4{margin:16px 0 6px;color:var(--accent);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em}
-.course ul{padding-left:18px;color:var(--muted)}.course li a{color:var(--fg)}.course .empty{color:var(--muted);font-style:italic}
-#courseGrid{align-items:start}
 </style>
 </head>
 <body>
@@ -98,8 +91,7 @@ details.course summary::after{content:"+";color:var(--accent)}details.course[ope
 
 <section id="courses"><div class="wrap">
   <h2>Current Courses</h2>
-  <p class="lead" style="margin:-10px 0 24px;font-size:1rem">Notes, study guides and resources, organized by class.</p>
-  <div class="grid" id="courseGrid"></div>
+  <div class="skills"><span>AP Precalculus</span><span>AP Calculus AB</span><span>Chemistry</span><span>AP Human Geography</span><span>English 2A</span><span>Spanish 3</span><span>AP Spanish</span><span>PE 2</span></div>
 </div></section>
 
 <section id="skills"><div class="wrap">
@@ -121,40 +113,6 @@ function size(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*deviceP
 const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function draw(n){x.clearRect(0,0,c.width,c.height);for(const s of st){x.globalAlpha=.4+.6*Math.abs(Math.sin(s.t+n/1500));x.fillStyle='#fff';x.beginPath();x.arc(s.x,s.y,s.r,0,7);x.fill()}if(!still)requestAnimationFrame(draw)}
 addEventListener('resize',size);size();requestAnimationFrame(draw);
-</script>
-<script>
-/* ===== EDIT YOUR COURSES HERE =====
-   Add units and materials. Each material: { title: "Name", url: "link" } */
-const COURSES = [
-  { name: "AP Precalculus", units: [
-    { unit: "Unit 1", materials: [] },
-  ]},
-  { name: "AP Calculus AB", units: [
-    { unit: "Unit 1", materials: [] },
-  ]},
-  { name: "Chemistry", units: [
-    { unit: "Unit 1", materials: [] },
-  ]},
-  { name: "AP Human Geography", units: [
-    { unit: "Unit 1", materials: [] },
-  ]},
-  { name: "English 2A", units: [
-    { unit: "Unit 1", materials: [] },
-  ]},
-  { name: "Spanish 3", units: [
-    { unit: "Unit 1", materials: [] },
-  ]},
-  { name: "AP Spanish", units: [
-    { unit: "Unit 1", materials: [] },
-  ]},
-  { name: "PE 2", units: [
-    { unit: "Unit 1", materials: [] },
-  ]},
-];
-const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-document.getElementById('courseGrid').innerHTML=COURSES.map(c=>`<details class="course"><summary>${esc(c.name)}</summary>${
-  c.units.map(u=>`<h4>${esc(u.unit)}</h4>${u.materials.length?`<ul>${u.materials.map(m=>`<li><a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.title)}</a></li>`).join('')}</ul>`:'<p class="empty">Materials coming soon</p>'}`).join('')
-}</details>`).join('');
 </script>
 </body>
 </html>
